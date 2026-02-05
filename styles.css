@@ -260,3 +260,34 @@ select:focus,input:focus{
 @media (max-width: 520px){
   .form .grid{grid-template-columns:1fr;}
 }
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand-icon{
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  background: rgba(255,255,255,.72);
+  border:1px solid rgba(17,24,39,.12);
+  box-shadow: 0 10px 30px rgba(17,24,39,.08);
+  display:grid;
+  place-items:center;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.brand-icon:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 14px 36px rgba(17,24,39,.12);
+}
+
+.icon-train{
+  width:22px;
+  height:22px;
+  stroke: rgba(17,24,39,.82); /* soft “ink”, not harsh black */
+  stroke-width:1.6;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
