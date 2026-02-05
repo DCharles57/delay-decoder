@@ -1,0 +1,24 @@
+{
+  "reasons": [
+    { "id": "signal", "label": "Signal problems" },
+    { "id": "track", "label": "Track maintenance" },
+    { "id": "police", "label": "Police activity" },
+    { "id": "medical", "label": "Medical emergency" },
+    { "id": "switch", "label": "Switch problem" },
+    { "id": "crew", "label": "Crew availability" },
+    { "id": "weather", "label": "Weather conditions" }
+  ],
+  "patterns": [
+    {
+      "line": "A",
+      "timeOfDay": "morning",
+      "dayType": "weekday",
+      "rules": [
+        { "min": 0, "max": 0, "status": "green", "action": "All good—stay put.", "why": "No delay reported. Normal headways expected." },
+        { "min": 1, "max": 9, "status": "yellow", "action": "Wait it out.", "why": "Short delays usually clear fast during this window." },
+        { "min": 10, "max": 30, "status": "yellow", "action": "Wait 5–10 mins, then reassess.", "why": "Moderate delays sometimes cascade into bunching." },
+        { "min": 31, "max": 999, "status": "red", "action": "Reroute now.", "why": "Severe delays historically persist longer on this line/time combo." }
+      ]
+    }
+  ]
+}

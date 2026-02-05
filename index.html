@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Delay Decoder</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">🗽</span>
+      <div>
+        <h1>Delay Decoder</h1>
+        <p class="tagline">NYC train delay → one clear move.</p>
+      </div>
+    </div>
+    <div class="chips">
+      <span class="chip">Traffic-light alerts</span>
+      <span class="chip">Tap for “why”</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>What’s your situation?</h2>
+
+      <form id="delayForm" class="form">
+        <div class="grid">
+          <label class="field">
+            <span>Train line</span>
+            <select id="line" required>
+              <option value="" disabled selected>Select a line</option>
+              <option>A</option><option>C</option><option>E</option>
+              <option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option>
+              <option>7</option><option>L</option><option>G</option>
+              <option>N</option><option>Q</option><option>R</option><option>W</option>
+              <option>B</option><option>D</option><option>F</option><option>M</option>
+              <option>J</option><option>Z</option>
+              <option>S</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Delay (minutes)</span>
+            <input id="minutes" type="number" min="0" max="240" placeholder="e.g. 12" required />
+          </label>
+
+          <label class="field">
+            <span>Time of day</span>
+            <select id="timeOfDay" required>
+              <option value="morning">Morning</option>
+              <option value="midday">Midday</option>
+              <option value="evening">Evening</option>
+              <option value="late">Late night</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Day</span>
+            <select id="dayType" required>
+              <option value="weekday">Weekday</option>
+              <option value="weekend">Weekend</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="rail-options" role="group" aria-label="Optional delay reason">
+          <p class="sub">Optional: pick a reason (helps explain the delay)</p>
+          <div id="reasons" class="tracks"></div>
+        </div>
+
+        <button class="btn" type="submit">
+          Decode my move <span aria-hidden="true">➜</span>
+        </button>
+      </form>
+    </section>
+
+    <section id="result" class="card result hidden" aria-live="polite">
+      <div class="result-head">
+        <div class="status-dot" id="statusDot" aria-hidden="true"></div>
+        <div>
+          <h2 id="headline">Your move</h2>
+          <p id="action" class="action"></p>
+        </div>
+      </div>
+
+      <details class="why">
+        <summary>
+          <span>Why am I seeing this?</span>
+          <span class="hint">Tap to expand</span>
+        </summary>
+        <div class="why-body">
+          <p id="whyText"></p>
+          <p class="micro" id="whyMeta"></p>
+        </div>
+      </details>
+
+      <div class="footer-row">
+        <button id="saveBtn" class="btn ghost" type="button">Save this result</button>
+        <button id="clearBtn" class="btn ghost" type="button">Clear</button>
+      </div>
+
+      <div id="recent" class="recent"></div>
+    </section>
+  </main>
+
+  <div class="pigeon-bg" aria-hidden="true"></div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
