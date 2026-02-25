@@ -175,7 +175,9 @@ clearBtn.addEventListener("click", () => {
 });
 
 // Boot
-loadData().catch(err => {
-  console.error(err);
-  alert("Could not load delays.json. Make sure you’re running Live Server.");
+document.addEventListener("DOMContentLoaded", () => {
+  loadData().catch(err => {
+    console.error(err);
+    alert("App error. Check Console for details.");
+  });
 });
