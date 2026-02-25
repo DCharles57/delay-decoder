@@ -140,11 +140,11 @@ form.addEventListener("submit", (e) => {
   if (!DATA) return;
 
   const inputs = {
-    line: document.getElementById("line").value,
-    minutes: Number(document.getElementById("minutes").value),
-    timeOfDay: document.getElementById("timeOfDay").value,
-    dayType: document.getElementById("dayType").value
-  };
+  line: document.getElementById("line").value,
+  minutes: Number(document.getElementById("minutes").value),
+  timeOfDay: "morning",
+  dayType: "weekday",
+};
 
   const rule = getRuleFor(inputs);
   showResult(rule, inputs);
